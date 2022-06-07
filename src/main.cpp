@@ -20,7 +20,7 @@ int main (int argc, char *argv[])
 {
   EoS eos;
 
-	cout << "this is another test" << endl;
+	cout << "this is yet another test" << endl;
 
   return 0;
 }
