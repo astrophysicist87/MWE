@@ -7,6 +7,6 @@ static constexpr bool zero_unsolvable_charge_densities    = false;
 
 static constexpr int VERBOSE = 10;
 static constexpr double TINY = 1e-25;
-static constexpr double TBQS_INFINITY = 1e10;  // indefinitely large limits for EoS
+static constexpr double TBQS_INFINITY = 1e6;  // indefinitely large limits for EoS
 
 #endif
