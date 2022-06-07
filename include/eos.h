@@ -145,6 +145,8 @@ private:
 
     //the current position in (T, muB, muQ, muS) initialized by tbqs()
     vector<double> tbqsPosition;
+    
+    string current_eos_name = "";
 
     double pVal          = 0.0;
     double entrVal       = 0.0;

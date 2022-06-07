@@ -18,9 +18,9 @@ using std::vector;
 
 int main (int argc, char *argv[])
 {
-  EoS eos;
+  EquationOfState eos;
   
-  eos.init();
+	
 
   return 0;
 }
