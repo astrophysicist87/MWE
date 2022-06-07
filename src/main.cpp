@@ -28,10 +28,15 @@ int main (int argc, char *argv[])
   bool solution_found = false;
   //double sVal = eos.s_out( 0.862529, -0.308373, 0.0, 0.308373, solution_found );
   double sVal = eos.s_out( 0.862529, 0.0, 0.0, 0.0, solution_found );
-
+  
   if ( solution_found )
 	{
 	  cout << "found solution!" << endl;
+	  cout << "T = " << eos.T() << endl;
+	  cout << "muB = " << eos.muB() << endl;
+	  cout << "muS = " << eos.muS() << endl;
+	  cout << "muQ = " << eos.muQ() << endl;
+	  	  
 		if (eos.cs2()<0)
 		{
 		  cout << __LINE__ << "cs2 was negative!" << endl;
