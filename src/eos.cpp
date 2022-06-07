@@ -447,7 +447,7 @@ eos_currently_trying = this_eos->name;
       solution_found = find_root_with_seed( "entropy", sin, Bin, Sin, Qin, this_eos, result );
     }
 
-
+/*
     ////////////////////////////////////////////////
     // if rootfinder fails, try another different seed
     if (!solution_found)
@@ -474,7 +474,7 @@ eos_currently_trying = this_eos->name;
                                             this_eos, result );
     }
 
-
+*/
 
     ////////////////////////////////////////////////
     // stop iterating through available EoSs when solution found
@@ -552,7 +552,7 @@ double EquationOfState::rootfinder_s_out( double ein, double Bin, double Sin,
     solution_found = find_root_with_seed( "energy", ein, Bin, Sin, Qin,
                                           this_eos, result );
 
-
+/*
     /////////////////////////////////////////////////////////
     // try conformal diagonal seed next
     if (!solution_found)
@@ -577,7 +577,7 @@ double EquationOfState::rootfinder_s_out( double ein, double Bin, double Sin,
       solution_found = find_root_with_seed( "energy", ein, 0.0, 0.0, 0.0,
                                             this_eos, result );
     }
-
+*/
 
     /////////////////////////////////////////////////////////
     // stop iterating through available EoSs when solution found
