@@ -146,10 +146,10 @@ public:
       muBsol           = point[1],
       muQsol           = point[2],
       muSsol           = point[3];
-std::cout << "T = " << point[0] << "\n";
-std::cout << "muB = " << point[1] << "\n";
-std::cout << "muQ = " << point[2] << "\n";
-std::cout << "muS = " << point[3] << std::endl;
+//std::cout << "T = " << point[0] << "\n";
+//std::cout << "muB = " << point[1] << "\n";
+//std::cout << "muQ = " << point[2] << "\n";
+//std::cout << "muS = " << point[3] << std::endl;
     double POut        = p(Tsol, muBsol, muQsol, muSsol);
     double sOut        = s(Tsol, muBsol, muQsol, muSsol);
     double BOut        = B(Tsol, muBsol, muQsol, muSsol);
@@ -160,10 +160,10 @@ std::cout << "muS = " << point[3] << std::endl;
     results[1]         = BOut;
     results[2]         = SOut;
     results[3]         = QOut;
-std::cout << "e = " << eOut << "\n";
-std::cout << "rhoB = " << BOut << "\n";
-std::cout << "rhoS = " << SOut << "\n";
-std::cout << "rhoQ = " << QOut << std::endl << std::endl << std::endl;
+//std::cout << "e = " << eOut << "\n";
+//std::cout << "rhoB = " << BOut << "\n";
+//std::cout << "rhoS = " << SOut << "\n";
+//std::cout << "rhoQ = " << QOut << std::endl << std::endl << std::endl;
   }
 
   void get_sBSQ( double point[], double results[] )
