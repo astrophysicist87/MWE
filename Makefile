@@ -1,5 +1,5 @@
 OBJDIR=obj
-OBJS = $(OBJDIR)/rootfinder.o $(OBJDIR)/main.o $(OBJDIR)/eos.o 
+OBJS = $(OBJDIR)/rootfinder.o $(OBJDIR)/main.o $(OBJDIR)/eos.o $(OBJDIR)/formatted_output.o
 			 
 CC = g++
 
@@ -14,7 +14,7 @@ INCLUDE=$(realpath include)
 
 GSLPATH=/projects/jnorhos/local/include
 GSLLIBPATH=/projects/jnorhos/local/lib
-CFLAGS = $(WARNINGS) $(OPTIMIZATION) -c -I$(GSLPATH) $(DEBUG) $(STANDARD) -fopenmp
+CFLAGS = $(WARNINGS) $(OPTIMIZATION) -c -I$(GSLPATH) $(DEBUG) $(STANDARD)
 LDFLAGS = -lm -lgsl -lgslcblas -lstdc++ -L$(GSLLIBPATH) $(DEBUG) $(STANDARD) 
 
 .PHONY:	all clean mkobjdir main
@@ -25,7 +25,7 @@ mkobjdir:
 	-@mkdir -p $(OBJDIR)
 
 main: mkobjdir $(OBJS)
-	$(CC) -g $(OBJS) -o persephone $(LDFLAGS)
+	$(CC) -g $(OBJS) -o main $(LDFLAGS)
 
 $(OBJDIR)/main.o: $(INCLUDE)/eos.h $(SRC)/main.cpp
 	$(CC) $(CFLAGS) $(SRC)/main.cpp -o $@
@@ -35,6 +35,10 @@ $(OBJDIR)/eos.o: $(INCLUDE)/eos.h $(SRC)/eos.cpp
 
 $(OBJDIR)/rootfinder.o: $(INCLUDE)/rootfinder.h $(SRC)/rootfinder.cpp
 	$(CC) $(CFLAGS) $(SRC)/rootfinder.cpp -o $@
+	
+$(OBJDIR)/formatted_output.o: $(SRC)/formatted_output.cpp $(INCLUDE)/formatted_output.h
+	$(CC) $(CFLAGS) $(INCFLAGS) -fpic -c $(SRC)/formatted_output.cpp -o $@
+
 
 
 clean:
