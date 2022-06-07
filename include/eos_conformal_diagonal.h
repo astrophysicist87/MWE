@@ -15,7 +15,7 @@ class EoS_conformal_diagonal: public EoS_base
 {
 private:
 
-  double c, T0, muB0, muS0, muQ0;
+  double c = 0.0, T0 = 0.0, muB0 = 0.0, muS0 = 0.0, muQ0 = 0.0;
   static constexpr double four_thirds = 4.0/3.0;
   static constexpr double two_to_two_thirds = pow(2.0, 2.0/3.0);
 
