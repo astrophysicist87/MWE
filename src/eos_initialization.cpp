@@ -38,7 +38,6 @@ void EquationOfState::init()
   // SET UP CONFORMAL EOS
   
   // SET UP CONFORMAL DIAGONAL EOS
-  if ( settingsPtr->EoS_type == "conformal_diagonal" )
   {
     formatted_output::update("Setting diagonal conformal equation of state");
 
