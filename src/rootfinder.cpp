@@ -598,6 +598,7 @@ bool Rootfinder::find_root( const string & e_or_s, double ein_or_sin,
                       function_to_evaluate, updated_tbqs ) ) 
         return true;
 
+/*
     //==========================================================================
     //check mu = 0
     tbqs(t0, 0, 0, 0);
@@ -614,6 +615,7 @@ bool Rootfinder::find_root( const string & e_or_s, double ein_or_sin,
     if( rootfinder4D( ein_or_sin, e_or_s_mode, Bin, Sin, Qin, TOLERANCE, STEPS,
                       function_to_evaluate, updated_tbqs ) ) 
         return true;
+*/
 
     if ( VERBOSE > 8 )
       std::cout << __PRETTY_FUNCTION__ << ": failed after "
