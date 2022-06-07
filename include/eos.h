@@ -18,6 +18,7 @@
 #include "eos_base.h"
 #include "eos_conformal_diagonal.h"
 #include "eos_header.h"
+#include "formatted_output.h"
 #include "rootfinder.h"
 #include "thermodynamic_info.h"
 
