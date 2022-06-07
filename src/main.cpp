@@ -51,7 +51,7 @@ int main (int argc, char *argv[])
       auto conformal_diagonal_EoS = std::dynamic_pointer_cast<EoS_conformal_diagonal>
                                         ( eos.chosen_EOS_map["conformal_diagonal"] );
 
-      result = conformal_diagonal_EoS->get_tbqs_seed_from_eBSQ( ein, Bin, Sin, Qin );
+      vector<double> result = conformal_diagonal_EoS->get_tbqs_seed_from_eBSQ( 0.862529, -0.308373, 0.0, 0.308373 );
 
 			cout << "Exact: " << result[0] << "   " << result[1] << "   " << result[2] << "   " << result[3] << endl;
     }
