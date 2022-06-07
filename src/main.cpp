@@ -33,11 +33,11 @@ int main (int argc, char *argv[])
   if ( solution_found )
 	{
 	  cout << "found solution!" << endl;
-		if (p.thermo.cs2<0)
+		/*if (p.thermo.cs2<0)
 		{
 		  cout << __LINE__ << "cs2 was negative!" << endl;
 		  exit(8);
-		}
+		}*/
 	}
 
   return 0;
