@@ -214,6 +214,6 @@ private:
 
 public:
   string get_current_eos_name() { return current_eos_name; }
-  }
+
 
 };
