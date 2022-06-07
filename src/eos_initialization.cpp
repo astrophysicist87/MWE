@@ -63,6 +63,8 @@ void EquationOfState::init()
                             tbqs_minima, tbqs_maxima, "conformal_diagonal" ) );
 
     default_eos_name = "conformal_diagonal";
+    
+    formatted_output::detail( "added successfully" );
 
   }
 
