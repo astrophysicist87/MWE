@@ -193,9 +193,9 @@ bool Rootfinder::rootfinder4D(double e_or_s_Given, int e_or_s_mode,
   
   gsl_multiroot_fsolver_set(solver, &f, x);
 
-  int status;
+  int status = GSL_CONTINUE;
   size_t iter = 0;
-  double previous_solver_step[4];
+  double previous_solver_step[4] = {-1.0, -1.0, -1.0, -1.0};
 
   ////////////////////
   // Loop.
