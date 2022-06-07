@@ -14,6 +14,7 @@
 
 #include "../include/constants.h"
 #include "../include/eos.h"
+#include "../include/formatted_output.h"
 #include "../src/eos_derivatives.cpp"
 #include "../src/eos_initialization.cpp"
 
