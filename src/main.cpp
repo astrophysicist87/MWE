@@ -11,6 +11,7 @@
 
 #include "../include/eos.h"
 #include "../include/constants.h"
+#include "../include/eos_conformal_diagonal.h"
 
 using std::cout;
 using std::endl;
@@ -43,6 +44,18 @@ int main (int argc, char *argv[])
 		  cout << __LINE__ << "cs2 was negative!" << endl;
 		  exit(8);
 		}
+		
+		// exact solution
+		{
+      // try conformal diagonal seed
+      auto conformal_diagonal_EoS = std::dynamic_pointer_cast<EoS_conformal_diagonal>
+                                        ( eos.chosen_EOS_map["conformal_diagonal"] );
+
+      result = conformal_diagonal_EoS->get_tbqs_seed_from_eBSQ( ein, Bin, Sin, Qin );
+
+			cout << "Exact: " << result[0] << "   " << result[1] << "   " << result[2] << "   " << result[3] << endl;
+    }
+
 	}
 
   return 0;
