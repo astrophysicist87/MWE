@@ -23,6 +23,13 @@ using std::vector;
 using std::string;
 
 ////////////////////////////////////////////////////////////////////////////////
+EquationOfState::EquationOfState()
+{
+	formatted_output::report("Initializing equation of state");
+	init();
+}
+
+
 vector<double> EquationOfState::get_thermodynamics( vector<double> & tbqsIn,
                                                       const string & eos_name )
 {

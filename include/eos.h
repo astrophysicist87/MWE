@@ -18,7 +18,6 @@
 #include "eos_base.h"
 #include "eos_conformal_diagonal.h"
 #include "eos_header.h"
-#include "formatted_output.h"
 #include "rootfinder.h"
 #include "thermodynamic_info.h"
 
@@ -36,11 +35,7 @@ public:
     // PUBLIC METHODS
 
     //Constructors:
-    EquationOfState()
-    {
-			formatted_output::report("Initializing equation of state");
-			init();
-    }
+    EquationOfState();
 
 
     // object to access appropriate EoS by name
