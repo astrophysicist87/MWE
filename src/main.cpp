@@ -27,8 +27,8 @@ int main (int argc, char *argv[])
 
   bool solution_found = false;
   //double sVal = eos.s_out( 0.862529, -0.308373, 0.0, 0.308373, solution_found );
-  //double sVal = eos.s_out( 0.862529, -0.000308373, 0.0, 0.000308373, solution_found );
-  double sVal = eos.s_out( 0.862529, 0.0, 0.0, 0.0, solution_found );
+  double sVal = eos.s_out( 0.862529, -0.000308373, 0.0, 0.000308373, solution_found );
+  //double sVal = eos.s_out( 0.862529, 0.0, 0.0, 0.0, solution_found );
   
   if ( solution_found )
 	{
