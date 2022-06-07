@@ -547,8 +547,8 @@ double EquationOfState::rootfinder_s_out( double ein, double Bin, double Sin,
   {
 
     /////////////////////////////////////////////////////////
-    // try forced seed first
-    result = vector<double>({95.0/hc, -50.0/hc, 0.0, 50.0/hc});
+    // try current position
+    result = tbqsPosition;
     solution_found = find_root_with_seed( "energy", ein, Bin, Sin, Qin,
                                           this_eos, result );
 
