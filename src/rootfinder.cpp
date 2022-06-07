@@ -605,7 +605,9 @@ bool Rootfinder::find_root( const string & e_or_s, double ein_or_sin,
     //auto sgn = [](double val) { return 0.0; };
     
     // perturb slightly to avoid singular jacobians(?)
-    tbqs(t0, 0.5*maxMuB*sgn(mub0), 0.5*maxMuQ*sgn(muq0), 0.5*maxMuS*sgn(mus0));
+    tbqs( t0, std::min(0.5*maxMuB, 1.0)*sgn(mub0),
+    					std::min(0.5*maxMuQ, 1.0)*sgn(muq0),
+    					std::min(0.5*maxMuS, 1.0)*sgn(mus0) );
 
     number_of_attempts++;
 
