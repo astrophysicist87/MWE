@@ -548,36 +548,9 @@ double EquationOfState::rootfinder_s_out( double ein, double Bin, double Sin,
 
     /////////////////////////////////////////////////////////
     // try forced seed first
-    result = vector<double>({1000.0/hc,0.0,0.0,0.0});
+    result = vector<double>({1000.0/hc,-1.0,0.0,1.0});
     solution_found = find_root_with_seed( "energy", ein, Bin, Sin, Qin,
                                           this_eos, result );
-
-/*
-    /////////////////////////////////////////////////////////
-    // try conformal diagonal seed next
-    if (!solution_found)
-    {
-      // try conformal diagonal seed
-      auto conformal_diagonal_EoS = std::dynamic_pointer_cast<EoS_conformal_diagonal>
-                                        ( chosen_EOS_map["conformal_diagonal"] );
-
-      result = conformal_diagonal_EoS->get_tbqs_seed_from_eBSQ
-                                        ( ein, Bin, Sin, Qin );
-
-      solution_found = find_root_with_seed( "energy", ein, Bin, Sin, Qin,
-                                            this_eos, result );
-    }
-
-    ////////////////////////////////////////////////
-    // if all else fails and relevant flag is set,
-    // ZERO CHARGE DENSITIES
-    if (zero_unsolvable_charge_densities && !solution_found)
-    {
-      result = vector<double>({1000.0/hc,0.0,0.0,0.0});
-      solution_found = find_root_with_seed( "energy", ein, 0.0, 0.0, 0.0,
-                                            this_eos, result );
-    }
-*/
 
     /////////////////////////////////////////////////////////
     // stop iterating through available EoSs when solution found
