@@ -1,11 +1,3 @@
-//============================================================================//
-// Code:    BSQHydro
-// Authors: Dekra Almaalol, Travis Dore, Jaki Noronha-Hostler, Lydia Spychalla,
-//          Christopher Plumberg, Nikolas Cruz-Camacho
-// Date:    October 7, 2021
-// Purpose: Run boost-invariant event-by-event hydrodynamics with conserved BSQ
-//          charges using the smoothed particle hydrodynamics (SPH) formalism
-//============================================================================//
 #include <algorithm>
 #include <cmath>
 #include <cstdio>
@@ -28,7 +20,7 @@ int main (int argc, char *argv[])
 {
   EoS eos;
 
-
+	cout << "this is a test" << endl;
 
   return 0;
 }
