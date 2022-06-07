@@ -23,11 +23,11 @@ int main (int argc, char *argv[])
   
   // default: use particle's current location as initial guess
   // (pass in corresponding EoS as well!)
-  eos.tbqs( 95.0/197.3, -50.0, 0.0, 50.0, "conformal_diagonal" );
+  eos.tbqs( 95.0/197.3, -50.0/197.3, 0.0, 50.0/197.3, "conformal_diagonal" );
 
   bool solution_found = false;
-  //double sVal = eos.s_out( 0.862529, -0.308373, 0.0, 0.308373, solution_found );
-  double sVal = eos.s_out( 0.862529, -0.000308373, 0.0, 0.000308373, solution_found );
+  double sVal = eos.s_out( 0.862529, -0.308373, 0.0, 0.308373, solution_found );
+  //double sVal = eos.s_out( 0.862529, -0.000308373, 0.0, 0.000308373, solution_found );
   //double sVal = eos.s_out( 0.862529, 0.0, 0.0, 0.0, solution_found );
   
   if ( solution_found )
