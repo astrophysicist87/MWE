@@ -14,7 +14,6 @@
 
 #include "../include/constants.h"
 #include "../include/eos.h"
-#include "../include/eos_delaunay.h"
 #include "../src/eos_derivatives.cpp"
 #include "../src/eos_initialization.cpp"
 
@@ -350,9 +349,7 @@ bool EquationOfState::update_s(double sin) { return update_s(sin, 0.0, 0.0, 0.0)
 bool EquationOfState::update_s(double sin, double Bin, double Sin, double Qin)
 {
   bool success = false;
-  if ( use_delaunay )
-    success = delaunay_update_s(sin, Bin, Sin, Qin);
-  else if ( use_rootfinder )
+	if ( use_rootfinder )
     success = rootfinder_update_s(sin, Bin, Sin, Qin);
   else
   {
@@ -362,24 +359,6 @@ bool EquationOfState::update_s(double sin, double Bin, double Sin, double Qin)
 
   return success;
 }
-
-////////////////////////////////////////////////
-bool EquationOfState::delaunay_update_s(double sin, double Bin, double Sin, double Qin)
-{
-  if (true)
-  {
-    std::cout << "You still need to check units!  Etc." << std::endl;
-    std::cerr << "You still need to check units!  Etc." << std::endl;
-    exit(1);
-  }
-  vector<double> result = tbqsPosition;
-
-  //bool success = entr_delaunay.interpolate( {sin, Bin, Sin, Qin}, result, true );
-  bool solution_found = false;
-  tbqs( result, "table" );
-  return solution_found;
-}
-
 
 ////////////////////////////////////////////////
 bool EquationOfState::find_root_with_seed(
@@ -540,9 +519,7 @@ double EquationOfState::s_out( double ein, double Bin, double Sin,
                                double Qin, bool & solution_found )
 {
   double result = 0.0;
-  if ( use_delaunay )
-    result = delaunay_s_out(ein, Bin, Sin, Qin, solution_found);
-  else if ( use_rootfinder )
+  if ( use_rootfinder )
     result = rootfinder_s_out(ein, Bin, Sin, Qin, solution_found);
   else
   {
@@ -553,21 +530,7 @@ double EquationOfState::s_out( double ein, double Bin, double Sin,
   return (result);
 }
 
-////////////////////////////////////////////////
-double EquationOfState::delaunay_s_out( double ein, double Bin, double Sin,
-                                        double Qin, bool & solution_found )
-{
-  if (true)
-  {
-    std::cout << "You still need to check units!  Etc." << std::endl;
-    std::cerr << "You still need to check units!  Etc." << std::endl;
-    exit(1);
-  }
-  vector<double> result = tbqsPosition;
-  //e_delaunay.interpolate( {ein, Bin, Sin, Qin}, result, true );
-  tbqs( result, "table" );
-  return entrVal;
-}
+
 
 ////////////////////////////////////////////////////////////////////////////////
 double EquationOfState::rootfinder_s_out( double ein, double Bin, double Sin,

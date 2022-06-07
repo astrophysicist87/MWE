@@ -19,8 +19,8 @@ using std::vector;
 int main (int argc, char *argv[])
 {
   EoS eos;
-
-	cout << "this is yet another test" << endl;
+  
+  eos.init();
 
   return 0;
 }

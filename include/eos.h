@@ -17,12 +17,8 @@
 
 #include "eos_base.h"
 #include "eos_conformal_diagonal.h"
-#include "eos_extension.h"
 #include "eos_header.h"
-#include "eos_delaunay.h"
-#include "interpolatorND.h"
 #include "rootfinder.h"
-#include "settings.h"
 #include "thermodynamic_info.h"
 
 using std::string;
@@ -39,8 +35,12 @@ public:
     // PUBLIC METHODS
 
     //Constructors:
-    EquationOfState();
-    EquationOfState(string quantityFile, string derivFile);
+    EquationOfState()
+    {
+			formatted_output::report("Initializing equation of state");
+			init();
+    }
+
 
     // object to access appropriate EoS by name
     std::unordered_map<std::string, pEoS_base> chosen_EOS_map;
@@ -48,8 +48,6 @@ public:
 
     ////////////////////////////////////////////////////////////////////////////
     void init();
-    void init(string quantityFile, string derivFile);
-//    void init_grid_ranges_only(string quantityFile, string derivFile);
     bool point_not_in_range( double setT, double setmuB, double setmuQ, double setmuS, pEoS_base peos );
     void tbqs( double setT, double setmuB, double setmuQ, double setmuS, const string & eos_name );
     void tbqs( vector<double> & tbqsIn, const string & eos_name );
@@ -136,27 +134,16 @@ public:
     double s_out(double ein, double Bin, double Sin, double Qin, bool & solution_found);
     double s_out(double ein, bool & solution_found);
 
-    void set_SettingsPtr( Settings * settingsPtr_in );
-
     vector<pEoS_base> chosen_EOSs;     // the vector of EoSs to use, in order
 
-    // use this specifically to make educated guesses for seed values, etc.
-//    EoS_conformal_diagonal conformal_diagonal_EoS;
 
 private:
 
     ////////////////////////////////////////////////////////////////////////////
     // PRIVATE MEMBERS
 
-    Settings * settingsPtr = nullptr;
-
     //the current position in (T, muB, muQ, muS) initialized by tbqs()
     vector<double> tbqsPosition;
-
-    // string to hold input filenames and EoS table
-    string quantity_file = "";
-    string deriv_file    = "";
-    string current_eos_name = "";
 
     double pVal          = 0.0;
     double entrVal       = 0.0;
@@ -211,12 +198,6 @@ private:
     double calc_term_4(string j_char, string i_char);
     double deriv_mult_aTm_1b(gsl_vector* a, gsl_matrix* m, gsl_vector* b);
 
-    
-    ////////////////////////////////////////////////////////////////////////////
-    // ROUTINES FOR DEBUGGING (uncomment to call)
-    //void check_EoS_derivatives();
-    //void get_toy_thermo(double point[], double thermodynamics[]);
-
 
     ////////////////////////////////////////////////////////////////////////////
     // MISCELLANEOUS PRIVATE ROUTINES
@@ -224,26 +205,16 @@ private:
                               double Bin, double Sin, double Qin,
                               pEoS_base this_eos, vector<double> & result );
 
-    bool delaunay_update_s(double sin, double Bin, double Sin, double Qin);
     bool rootfinder_update_s(double sin, double Bin, double Sin, double Qin);
-    double delaunay_s_out(double ein, double Bin, double Sin, double Qin, bool & solution_found);
     double rootfinder_s_out(double ein, double Bin, double Sin, double Qin, bool & solution_found);
-
-    // need these to be static to initialize std::function<...> objects
-    static void get_eBSQ_densities_from_interpolator( double point[], double densities[] );
-    static void get_sBSQ_densities_from_interpolator( double point[], double densities[] );
 
 
     ////////////////////////////////////////////////////////////////////////////
     // MEMBERS AND ROUTINES TO FIND (T,muX) COORDINATES OF (e,rhoX) POINT
     // - for using the root-finding functionality
     Rootfinder rootfinder;
-    // - for using a Delaunay interpolation
-    eos_delaunay e_delaunay;
-    eos_delaunay entr_delaunay;
 
 public:
-  //bool using_conformal_as_fallback() { return use_conformal_as_fallback; }
   string get_current_eos_name() { return current_eos_name; }
   void run_closure_test();
 
