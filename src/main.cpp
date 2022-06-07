@@ -17,8 +17,6 @@ using std::endl;
 using std::string;
 using std::vector;
 
-const double hc = constants::hbarc_MeVfm;
-
 int main (int argc, char *argv[])
 {
   EquationOfState eos;
@@ -28,7 +26,7 @@ int main (int argc, char *argv[])
   eos.tbqs( 1000.0, 0.0, 0.0, 0.0, "conformal_diagonal" );
 
   bool solution_found = false;
-  double sVal = eos.s_out( 0.862529, -0.308373/hc, 0.0/hc, 0.308373/hc, solution_found );
+  double sVal = eos.s_out( 0.862529, -0.308373, 0.0, 0.308373, solution_found );
 
   if ( solution_found )
 	{
