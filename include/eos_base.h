@@ -12,7 +12,7 @@
 class EoS_base
 {
   public:
-    EoS_base(){}
+    EoS_base(){std::cout << "In default " << __FUNCTION__ << " constructor!\n"; abort();}
     virtual ~EoS_base(){}
 
     // functionals every EoS needs

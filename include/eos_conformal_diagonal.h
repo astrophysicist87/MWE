@@ -23,7 +23,7 @@ private:
 
 public:
   // default constructor/destructor
-  EoS_conformal_diagonal(){std::cout << "In default constructor!\n"; abort();}
+  EoS_conformal_diagonal(){std::cout << "In default " << __FUNCTION__ << " constructor!\n"; abort();}
   virtual ~EoS_conformal_diagonal(){}
 
   EoS_conformal_diagonal( const double c_in,
